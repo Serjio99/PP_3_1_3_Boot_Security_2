@@ -74,8 +74,15 @@ public class CustomUserDetails extends User implements UserDetails {
         return super.getRoles();
     }
 
+//    @Override
+//        public Set<Role> getRoles() {   // изменение ролей
+//        return roles;
+//    }
+
     @Override
     public String getSecondName() {
         return super.getSecondName();
     }
+
+
 }

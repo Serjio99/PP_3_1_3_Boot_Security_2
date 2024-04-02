@@ -12,6 +12,6 @@ import java.util.Set;
 public interface RoleDao {
 
     List<Role> getAllRoles();
-
+    @Transactional
     void addRole(Role role);
 }

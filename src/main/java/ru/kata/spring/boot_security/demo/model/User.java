@@ -12,11 +12,11 @@ import java.util.Set;
 @Setter
 @Getter
 @Entity
-@Table(name = "users")
+//@Table(name = "users")
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"name"})})
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    @Column(name = "id", nullable = false)
     private Long id;
     @Column(name = "name")
     private String name;
@@ -27,6 +27,8 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    // изменение ролей
+    @Getter
     @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE})
     @Fetch(FetchMode.JOIN)
     @JoinTable(name = "users_roles",
@@ -73,4 +75,5 @@ public class User {
     public String getUsername() {
         return name;
     }
+
 }

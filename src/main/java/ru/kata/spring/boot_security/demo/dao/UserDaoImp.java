@@ -54,13 +54,13 @@ public class UserDaoImp implements UserDao {
 
     @Override
     public void updateUser(Long id, User user) {
-        entityManager.joinTransaction();
+    //    entityManager.joinTransaction();
         User us = getById(id);
         us.setName(user.getName());
         us.setSecondName(user.getSecondName());
         us.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         us.setEmail(user.getEmail());
-        entityManager.merge(us);
+    //    entityManager.merge(us);
     }
 
     @Override

@@ -22,8 +22,7 @@
     <p>
         <label>Roles:
             <input type="checkbox" name="roleList"
-                   th:each="role, iter : ${roleList}"
-                   th:if="${iter.index < 2}"
+                   th:each="role : ${roleList}"
                    th:text="${role.getTrimName()}"
                    th:value="${role.getRole()}"
                    th:field="*{roles}"

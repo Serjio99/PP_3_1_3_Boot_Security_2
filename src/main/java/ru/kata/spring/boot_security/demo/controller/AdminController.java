@@ -47,7 +47,7 @@ public class AdminController {
     }
 
     @GetMapping("/user/{id}")  // получаем текущего пользователя и передаем в представление
-    public String showReadUser(Model model, User admin) {
+    public String showUserForm(Model model, User admin) {
         model.addAttribute("admin", admin);
         model.addAttribute("users", userService.getAllUser());
         model.addAttribute("userRoles", roleService.getAllRoles());
@@ -62,7 +62,7 @@ public class AdminController {
     }
 
     @PostMapping("editUser/{id}") // обновляем информацию о пользователе
-    public String saveEditedUser(@ModelAttribute("user") User user, @PathVariable("id") long id) {
+    public String saveUser(@ModelAttribute("user") User user, @PathVariable("id") long id) {
         userService.updateUser(id, user);
         return "redirect:/admin";
     }

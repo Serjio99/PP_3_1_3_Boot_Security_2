@@ -16,10 +16,12 @@ import java.util.Set;
 @Transactional(readOnly = true)
 public class UserServiceImp implements UserService {
     private final UserDao userDao;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserServiceImp(UserDao userDao) {
+    public UserServiceImp(UserDao userDao, @Lazy PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -49,5 +51,4 @@ public class UserServiceImp implements UserService {
     public void deleteUser(Long id) {
         userDao.deleteUser(id);
     }
-
 }
